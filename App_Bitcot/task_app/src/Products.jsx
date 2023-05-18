@@ -39,7 +39,7 @@ const Products = () => {
     function handleEdit(event){
         let idToEdit = event.target.name;
         let newEditArr = pdata.filter(i => i.id == idToEdit);
-        Auth.cdispatch({type:"editProduct",value:newEditArr})
+        Auth.cdispatch({type:"editProduct",value:JSON.stringify(newEditArr)})
         
     }
     return (
@@ -207,7 +207,7 @@ const Products = () => {
                                                             <td>
                                                                 <div className="media align-items-center">
                                                                     <div className="product_thumb">
-                                                                        <img src={d.variation[0].productImage} alt="Images" />
+                                                                        <img src={d.variation[0]?.productImage} alt="Images" />
                                                                     </div>
                                                                     <div className="media-body product_des">
                                                                         <h6 className="product_name">{d.productName}</h6>
@@ -215,8 +215,8 @@ const Products = () => {
                                                                 </div>
                                                             </td>
                                                             <td className="text_primary">{d.category}</td>
-                                                            <td>{d.variation[0].price}</td>
-                                                            <td>{d.variation[0].stock}</td>
+                                                            <td>{d.variation[0]?.price}</td>
+                                                            <td>{d.variation[0]?.stock}</td>
                                                             <td>{d.status}</td>
                                                             <td className="actions">
                                                                 <div className="dropdown dropdown_wrapper ">

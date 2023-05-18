@@ -41,8 +41,8 @@ function App() {
       case "confirmpassword": return {...state,confirmpassword:action.value}
       case "signup":return {...state,signedusers:[...state.signedusers,{email:state.email,password:state.password}],email:"",password:"",confirmpassword:""}
       case "deleteProduct": return {...state,productdata:action.value}
-      case "editProduct":return {...state,selectedProduct:action.value}
-      case "addProduct":{return {...state,productdata:[...state.productdata,action.value.prod]}}
+      case "editProduct":return {...state,selectedProduct:JSON.parse(action.value)}
+      // case "addProduct":{return {...state,productdata:[...state.productdata,action.value.prod]}}
       case "setLogin":return {...state,isLoggedIn:action.value};
       case "setToken": return {...state,token:action.value};
       case "logout": {localStorage.removeItem('Token_Auth');return {...state,Token_Auth:false,isLoggedIn:action.value}}
